@@ -1,6 +1,9 @@
-  function showPage(pageId) {
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.classList.remove('active'));
+function showPage(pageId) {
+  const pages = document.querySelectorAll('.page');
 
-      document.getElementById(pageId).classList.add('active');
-    }
+  // Hide all pages
+  pages.forEach(page => page.classList.remove('active'));
+
+  // Show only the selected one
+  document.getElementById(pageId).classList.add('active');
+}

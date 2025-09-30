@@ -1,48 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lawyer Routing Example</title>
-  <link rel="stylesheet" href="index.css">
-</head>
-<body>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lawyer Routing Example</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="logo">
         <h2>Justice Legal chamber</h2>
+      </div>
+      <ul>
+        <li><a onclick="showPage('home')">Home</a></li>
+        <li><a onclick="showPage('services')">Services</a></li>
+        <li><a onclick="showPage('team')">Team</a></li>
+        <li><a onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Pages -->
+    <div id="home" class="page active">
+      <div class="content">
+        <h1>Expert Criminal Defense Lawyers</h1>
+        <p>
+          When your future is at stake, you need experienced legal
+          representation. Our team of dedicated criminal defense attorneys is
+          committed to protecting your rights and achieving the best possible
+          outcome for your case.
+        </p>
+        <button class="home-btn">Shedule Consultation</button>
+      </div>
     </div>
-    <ul>
-      <li><a onclick="showPage('home')">Home</a></li>
-      <li><a onclick="showPage('services')">Services</a></li>
-      <li><a onclick="showPage('team')">Team</a></li>
-      <li><a onclick="showPage('contact')">Contact</a></li>
-    </ul>
-  </nav>
 
-  <!-- Pages -->
-  <div id="home" class="page active">
-    <h1>🏠 Welcome to Home Page</h1>
-    <p>This is the home page content.</p>
-  </div>
+    <div id="services" class="page">
+      <h1>⚖️ Our Services</h1>
+      <p>This is the services page content.</p>
+    </div>
 
-  <div id="services" class="page">
-    <h1>⚖️ Our Services</h1>
-    <p>This is the services page content.</p>
-  </div>
+    <div id="team" class="page">
+      <h1>Our Team</h1>
+      <p>This is the Team page content.</p>
+    </div>
 
-<div id="team" class="page">
-    <h1>Our Team</h1>
-    <p>This is the Team page content.</p>
-  </div>
-
-  <div id="contact" class="page">
-    <h1>📞 Contact Us</h1>
-    <p>This is the contact page content.</p>
-  </div>
-
+    <div id="contact" class="page">
+      <h1>📞 Contact Us</h1>
+      <p>This is the contact page content.</p>
+    </div>
+ <footer>
+   <p>© 2025 Muhammad Huzaifa | All Rights Reserved</p>
+  </footer>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
-
