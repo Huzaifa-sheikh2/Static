@@ -1,47 +1,56 @@
- body {
-      font-family: Arial, sans-serif;
-      background-color: whitesmoke;
-      /* color: darkblue; */
-      margin: 0;
-      padding: 0;
-    }
-     nav {
-      background-color: darkblue;
-      padding: 15px;
-      text-align: center;
-    }
-  nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      text-align: right;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
 
-    nav li {
-        text-align: right;
-      display: inline-block;
-      margin-right: 20px;
-    }
+/* ✅ Flexbox layout for nav */
+nav {
+    height: 40px;
+  background-color: darkblue;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between; /* logo left, menu right */
+  align-items: center;            /* center vertically */
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
+/* ✅ Remove text-align (Flex handles alignment) */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* ✅ Make links inline */
+  gap: 20px;     /* ✅ Space between links */
+}
 
-    nav a:hover {
-      color: #00bfff;
-    }
+nav li {
+  display: inline-block;
+}
 
-    .page {
-      display: none;
-      padding: 40px;
-      text-align: center;
-    }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .active {
-      display: block;
-    }
+nav a:hover {
+  color: #00bfff;
+}
 
+.page {
+  display: none;
+  padding: 40px;
+  text-align: center;
+}
 
+.active {
+  display: block;
+}
+
+.logo {
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
