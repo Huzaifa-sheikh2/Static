@@ -202,3 +202,14 @@ footer p {
   border-radius: 5px;
   margin-top: 52px;
 }
+
+.btn4{
+  background-color: #00A2A8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 90px;
+}
