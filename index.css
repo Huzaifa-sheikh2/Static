@@ -110,12 +110,15 @@ footer {
   background-color: #003336;
   color: white;
   text-align: center;
-  padding: 15px; 
-  position: fixed; /* ✅ Fixes footer at bottom */
-  bottom: 0;
+  padding: 15px;
   width: 100%;
   height: 90px;
+  position: fixed;
+  bottom: -2px; /* hide below screen */
+  left: 0;
+  transition: bottom 0.5s ease; 
 }
+
 footer p {
   margin: 0;
   font-size: 14px;
