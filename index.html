@@ -82,6 +82,7 @@
     background: #007070;
     transform: translateY(-2px);
   }
+  
 </style>
 
   </head>
@@ -91,12 +92,12 @@
       <div class="logo">
         <h2>Justice Legal chamber</h2>
       </div>
-      <ul>
-        <li><a onclick="showPage('home')">Home</a></li>
-        <li><a onclick="showPage('services')">Services</a></li>
-        <li><a onclick="showPage('team')">Team</a></li>
-        <li><a onclick="showPage('contact')">Contact</a></li>
-      </ul>
+     <ul>
+  <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+  <li><a href="#" onclick="showPage('services'); return false;">Services</a></li>
+  <li><a href="#" onclick="showPage('team'); return false;">Team</a></li>
+  <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+</ul>
     </nav>
 
     <!-- Pages -->
@@ -221,51 +222,24 @@
     </div>
 
     <div class="contact-card">
-      <form id="contactForm">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="from_name" placeholder="Enter your full name" required>
-
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="from_email" placeholder="Enter your email" required>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-
-        <button type="submit" class="btn">Send Message</button>
+      <h1>Contect with muhammad Huzaifa</h1>
+       <a href="https://wa.me/923273818481" target="_blank">
+          <button class="contect-btn">Connect Now</button>
+        </a>
       </form>
 
     </div>
   </div>
-</div>    <footer>
+</div>   
+ <footer>
       <h2>Justice Legal Chambers</h2>
       <p>© 2025 Muhammad Huzaifa & Umar farooq | All Rights Reserved</p>
     </footer>
+
+
+    
     <script src="index.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("YOUR_PUBLIC_KEY"); // 🔹 Replace with your EmailJS Public Key
-  })();
-
-  const form = document.getElementById('contactForm');
-  const successMessage = document.getElementById('success-message');
-  const errorMessage = document.getElementById('error-message');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(() => {
-        successMessage.style.display = 'block';
-        errorMessage.style.display = 'none';
-        form.reset();
-        setTimeout(() => successMessage.style.display = 'none', 5000);
-      }, (error) => {
-        console.error('FAILED...', error);
-        successMessage.style.display = 'none';
-        errorMessage.style.display = 'block';
-      });
-  });
+    
 </script>
   </body>
 </html>

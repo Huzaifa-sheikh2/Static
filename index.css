@@ -26,12 +26,22 @@ body {
 
 /* Navbar */
 nav {
-  height: 40px;
   background-color: #003336;
-  padding: 15px 20px;
+  padding: 2vw 4vw; /* Relative padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.3s ease;
+  font-size: clamp(14px, 2vw, 18px); /* Responsive font size */
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+  nav > * {
+    margin-bottom: 1vw; /* Relative margin */
+  }
 }
 
 nav ul {
@@ -40,6 +50,40 @@ nav ul {
   padding: 0;
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  nav ul {
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+/* Small mobile styles (320px) */
+@media (max-width: 320px) {
+  nav ul {
+    gap: 8px;
+  }
+  
+  nav ul li {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 14px;
+  }
 }
 
 nav a {
@@ -47,27 +91,142 @@ nav a {
   text-decoration: none;
   font-weight: bold;
   cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+  display: inline-block;
 }
 
 nav a:hover {
   color: #00bfff;
 }
 
+/* Tablet styles */
+@media (max-width: 768px) {
+  nav a {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+  
+  /* Touch-friendly hover state */
+  nav a:hover,
+  nav a:active {
+    color: #00bfff;
+    background-color: rgba(0, 191, 255, 0.1);
+    border-radius: 4px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  nav a {
+    padding: 10px 15px;
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  nav a:active {
+    background-color: rgba(0, 191, 255, 0.2);
+  }
+}
+
+/* Small mobile styles (320px) */
+@media (max-width: 320px) {
+  nav a {
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: 600; /* Slightly less bold */
+  }
+  
+  /* Larger tap target for small screens */
+  nav a:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    bottom: -5px;
+    left: -5px;
+    right: -5px;
+  }
+}
+
 .logo {
   color: white;
   font-size: 17px;
   font-weight: bold;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 15px;
+    padding: 5px 0;
+  }
+}
+
+/* Small mobile styles (320px) */
+@media (max-width: 320px) {
+  .logo {
+    font-size: 14px;
+    font-weight: 600; /* Slightly less bold for better readability */
+    letter-spacing: -0.3px; /* Tighter spacing to save space */
+  }
+  
+  /* If logo is too long, allow wrapping */
+  .logo.allow-wrap {
+    white-space: normal;
+    line-height: 1.2;
+  }
 }
 
 /* Page handling */
 .page {
   display: none;
-  padding: 40px;
+  padding: 5vw;
   text-align: center;
 }
 
+/* For small screens (typically mobile devices) */
+@media (max-width: 768px) {
+  .page {
+    padding: 4vw; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .page {
+    padding: 3vw; /* Adjust padding for very small screens */
+  }
+}
 .page.active {
   display: block;
+}
+
+/* For small screens (typically mobile devices) */
+@media (max-width: 768px) {
+  .page.active {
+    padding: 4vw; /* Adjust padding for smaller screens */
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .page.active {
+    padding: 3vw; /* Adjust padding for very small screens */
+  }
 }
 
 /* ✅ Home Page Styling */
@@ -85,10 +244,41 @@ nav a:hover {
 
 .content {
   color: white;
-  padding: 50px;
+  padding: 5vw; /* Responsive padding */
   text-align: left;
-  width: 500px;
-  padding-bottom: 100px;
+  max-width: 80%; /* Responsive width */
+  margin: 0 auto; /* Center horizontally */
+  padding-bottom: 10vw; /* Responsive padding bottom */
+}
+
+/* For small screens (typically mobile devices) */
+@media (max-width: 768px) {
+  .content {
+    padding: 4vw; /* Adjust padding for smaller screens */
+    max-width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+/* For even smaller screens */
+@media (max-width: 480px) {
+  .content {
+    padding: 3vw; /* Adjust padding for very small screens */
+    max-width: 95%; /* Adjust width for very small screens */
+  }
+}
+
+/* For very small screens (e.g., iPhone 5/SE) */
+@media (max-width: 375px) {
+  .content {
+    padding: 2.5vw; /* Minimal padding for tiny screens */
+  }
+}
+
+/* For extremely small screens (e.g., iPhone 4) */
+@media (max-width: 320px) {
+  .content {
+    padding: 2vw; /* Minimal padding for very tiny screens */
+  }
 }
 
 /* Button styling */
@@ -112,30 +302,166 @@ footer {
   text-align: center;
   padding: 15px;
   width: 100%;
-  height: 90px;
+  min-height: 90px;
+  height: auto;
   position: fixed;
-  bottom: -2px; /* hide below screen */
+  bottom: -2px;
   left: 0;
-  transition: bottom 0.5s ease; 
+  transition: bottom 0.5s ease;
+  box-sizing: border-box;
+  z-index: 100;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  footer {
+    min-height: 80px;
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+  
+  /* Adjust for content that might wrap */
+  footer * {
+    line-height: 1.4;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  footer {
+    min-height: 70px;
+    padding: 10px;
+    font-size: 13px;
+  }
+  
+  /* Stack footer content vertically if needed */
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+/* Small mobile styles (320px) */
+@media (max-width: 320px) {
+  footer {
+    min-height: 60px;
+    padding: 8px;
+    font-size: 12px;
+  }
+  
+  /* Ensure footer doesn't overflow */
+  footer * {
+    max-width: 100%;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  footer {
+    min-height: 50px;
+    padding: 8px 15px;
+  }
+  
+  /* More compact in landscape */
+  footer p {
+    margin: 2px 0;
+  }
+}
+
+/* For when footer is visible */
+footer.show {
+  bottom: 0;
 }
 
 footer p {
   margin: 0;
   font-size: 14px;
+  line-height: 1.5;
 }
-.service-heading{
+
+.service-heading {
   color: #003336;
   font-size: 34px;
   margin-bottom: 20px;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  footer p {
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 0 10px;
+  }
   
+  .service-heading {
+    font-size: 28px;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  footer p {
+    font-size: 12px;
+    line-height: 1.3;
+    padding: 0 5px;
+  }
   
+  .service-heading {
+    font-size: 24px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+  }
+}
+
+/* Small mobile styles (320px) */
+@media (max-width: 320px) {
+  footer p {
+    font-size: 11px;
+    line-height: 1.3;
+    max-width: 100%;
+  }
+  
+  .service-heading {
+    font-size: 20px;
+    margin-bottom: 12px;
+    padding: 0 5px;
+    letter-spacing: -0.3px; /* Tighter spacing for small screens */
+  }
+  
+  /* If heading is too long */
+  .service-heading {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  footer p {
+    font-size: 12px;
+    margin: 2px 0;
+  }
+  
+  .service-heading {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
 }
 .underline{
-  width: 220px;
+  width: 210px;
   border-bottom: 3px solid #00A2A8;
   margin-top: -20px;
-  margin-left: 640px;
+  margin-left: 610px;
 
 
 }
@@ -303,7 +629,20 @@ footer p {
 .home-btn{
   margin: auto;
 }
-
+.contect-btn{
+  background-color: #008888;
+  color: white;
+  margin-left: 250px;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.contect-btn:hover{
+  background-color: #005f5f;
+}
 
 
 
