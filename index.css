@@ -8,6 +8,23 @@ body {
 }
 
 /* ✅ For tablets (medium screens) */
+/* ✅ For large screens (desktops) */
+@media (min-width: 1025px) {
+  body {
+    font-size: 17px;
+    padding-bottom: 60px;
+  }
+}
+
+/* ✅ For tablets (landscape & portrait) */
+@media (max-width: 992px) {
+  body {
+    font-size: 16px;
+    padding-bottom: 70px;
+  }
+}
+
+/* ✅ For small tablets & large phones */
 @media (max-width: 768px) {
   body {
     font-size: 15px; /* slightly smaller text */
@@ -15,7 +32,7 @@ body {
   }
 }
 
-/* ✅ For mobile (small screens) */
+/* ✅ For standard mobile devices */
 @media (max-width: 480px) {
   body {
     font-size: 14px; /* smaller font for phones */
@@ -23,128 +40,130 @@ body {
   }
 }
 
+/* ✅ For smaller phones (e.g. 425px) */
+@media (max-width: 425px) {
+  body {
+    font-size: 13.5px;
+    padding-bottom: 95px;
+  }
+}
+
+/* ✅ For extra small phones (e.g. 375px) */
+@media (max-width: 375px) {
+  body {
+    font-size: 13px;
+    padding-bottom: 100px;
+  }
+}
+
+/* ✅ For very tiny screens (e.g. 320px and below) */
+@media (max-width: 320px) {
+  body {
+    font-size: 12.5px;
+    padding-bottom: 105px;
+  }
+}
+
+
 
 /* Navbar */
-nav {
-  background-color: #003336;
-  padding: 2vw 4vw; /* Relative padding */
+/* ==== Navbar Base Styles ==== */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: all 0.3s ease;
-  font-size: clamp(14px, 2vw, 18px); /* Responsive font size */
+  background: #003336; /* your chosen color */
+  padding: 15px 30px;
+  color: white;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-  }
-  nav > * {
-    margin-bottom: 1vw; /* Relative margin */
-  }
+.navbar .logo h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #ffffff;
+  text-align: left;
+  font-family: "Times New Roman", Times, serif;
 }
 
-nav ul {
-  list-style-type: none;
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
   margin: 0;
   padding: 0;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: center;
 }
 
-/* Tablet styles */
-@media (max-width: 768px) {
-  nav ul {
-    gap: 15px;
-    justify-content: center;
-    width: 100%;
-  }
-}
-
-/* Mobile styles */
-@media (max-width: 480px) {
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-    text-align: center;
-  }
-}
-
-/* Small mobile styles (320px) */
-@media (max-width: 320px) {
-  nav ul {
-    gap: 8px;
-  }
-  
-  nav ul li {
-    width: 100%;
-    padding: 5px 0;
-    font-size: 14px;
-  }
-}
-
-nav a {
+.navbar ul li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 500;
+  transition: 0.2s;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.navbar ul li a:hover {
+  color: #66cccc;
+}
+
+/* ==== Hamburger Icon ==== */
+.menu-icon {
+  display: none;
+  font-size: 28px;
   cursor: pointer;
-  transition: color 0.3s ease;
-  padding: 5px 10px;
-  display: inline-block;
+  color: #ffffff;
 }
 
-nav a:hover {
-  color: #00bfff;
+/* ==== Responsive Styles ==== */
+@media (max-width: 992px) {
+  .navbar .logo h2 {
+    font-size: 18px;
+  }
 }
 
-/* Tablet styles */
 @media (max-width: 768px) {
-  nav a {
-    padding: 8px 12px;
-    font-size: 16px;
+  .menu-icon {
+    display: block;
   }
-  
-  /* Touch-friendly hover state */
-  nav a:hover,
-  nav a:active {
-    color: #00bfff;
-    background-color: rgba(0, 191, 255, 0.1);
-    border-radius: 4px;
-  }
-}
 
-/* Mobile styles */
-@media (max-width: 480px) {
-  nav a {
-    padding: 10px 15px;
-    font-size: 15px;
+  .navbar ul {
+    display: none;
     width: 100%;
-    text-align: center;
+    flex-direction: column;
+    background: #003336; /* same color for dropdown */
+    padding: 12px 0;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.3s ease;
   }
-  
-  nav a:active {
-    background-color: rgba(0, 191, 255, 0.2);
+
+  .navbar ul li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .navbar ul.show {
+    display: flex;
   }
 }
 
-/* Small mobile styles (320px) */
-@media (max-width: 320px) {
-  nav a {
-    padding: 8px 10px;
-    font-size: 14px;
-    font-weight: 600; /* Slightly less bold */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 18px;
   }
-  
-  /* Larger tap target for small screens */
-  nav a:before {
-    position: absolute;
-    top: -5px;
-    bottom: -5px;
-    left: -5px;
-    right: -5px;
+  .navbar .logo h2 {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+@media (max-width: 375px) {
+  .navbar .logo h2 {
+    font-size: 15px;
+  }
+}
+@media (max-width: 320px) {
+  .navbar .logo h2 {
+    font-size: 14px;
   }
 }
 
@@ -168,6 +187,7 @@ nav a:hover {
 }
 
 /* Mobile styles */
+/* For screens up to 480px wide */
 @media (max-width: 480px) {
   .logo {
     font-size: 15px;
@@ -175,10 +195,27 @@ nav a:hover {
   }
 }
 
+/* For screens up to 425px wide */
+@media (max-width: 425px) {
+  .logo {
+    font-size: 14px;
+    padding: 4px 0;
+  }
+}
+
+/* For screens up to 375px wide */
+@media (max-width: 375px) {
+  .logo {
+    font-size: 10px;
+    font-weight: 600; /* Slightly less bold for better readability */
+  }
+}
+
+
 /* Small mobile styles (320px) */
 @media (max-width: 320px) {
   .logo {
-    font-size: 14px;
+    font-size: 8px;
     font-weight: 600; /* Slightly less bold for better readability */
     letter-spacing: -0.3px; /* Tighter spacing to save space */
   }
@@ -727,19 +764,38 @@ footer p {
   }
 }
 
-.team-img1{
+.team-img1,
+.team-img2 {
   width: 100%;
   height: 400px;
   border-radius: 8px;
-
+  object-fit: cover; /* Keeps image proportionate while filling space */
 }
 
-.team-img2{
-  width: 100%;
-  height: 400px;
-  border-radius: 8px;
-
+/* For tablets and smaller laptops */
+@media (max-width: 992px) {
+  .team-img1,
+  .team-img2 {
+    height: 300px;
+  }
 }
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .team-img1,
+  .team-img2 {
+    height: 250px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .team-img1,
+  .team-img2 {
+    height: 200px;
+  }
+}
+
 
 .Team-btn{
   background-color: #00A2A8;
@@ -751,7 +807,6 @@ footer p {
   border-radius: 5px;
   margin-top: 20px;
   display: block;
-  margin-left: auto;
   margin-right: auto;
 }
 .Team-btn:hover{
@@ -764,19 +819,79 @@ footer p {
 .home-btn{
   margin: auto;
 }
-.contect-btn{
+.contect-btn {
   background-color: #008888;
   color: white;
-  margin-left: 250px;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border-radius: 20px;
   margin-top: 20px;
+  transition: background-color 0.2s ease;
+  display: block;
+  margin: 20px auto 0;
+  text-decoration: none; /* ✅ removes any underline */
 }
-.contect-btn:hover{
+
+.contect-btn:hover {
   background-color: #005f5f;
+  text-decoration: none; /* ✅ ensures no underline on hover */
+}
+
+/* ✅ For large tablets and small laptops */
+@media (max-width: 992px) {
+  .contect-btn {
+    font-size: 15px;
+    padding: 9px 18px;
+  }
+}
+
+/* ✅ For tablets */
+@media (max-width: 768px) {
+  .contect-btn {
+    font-size: 14.5px;
+    padding: 9px 16px;
+    border-radius: 18px;
+  }
+}
+
+/* ✅ For mobile phones */
+@media (max-width: 480px) {
+  .contect-btn {
+    width: 90%;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 16px;
+  }
+}
+
+/* ✅ For smaller phones (425px and below) */
+@media (max-width: 425px) {
+  .contect-btn {
+    width: 90%;
+    font-size: 13.5px;
+    padding: 9px;
+  }
+}
+
+/* ✅ For small mobile screens (375px and below) */
+@media (max-width: 375px) {
+  .contect-btn {
+    width: 92%;
+    font-size: 13px;
+    padding: 8px;
+  }
+}
+
+/* ✅ For very small screens (320px and below) */
+@media (max-width: 320px) {
+  .contect-btn {
+    width: 95%;
+    font-size: 12.5px;
+    padding: 8px;
+    border-radius: 14px;
+  }
 }
 
 

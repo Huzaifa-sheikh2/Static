@@ -15,90 +15,285 @@
     --radius: 14px;
   }
   #contact {
-    background: var(--bg);
-    padding: 60px 20px;
-    border-radius: var(--radius);
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    max-width: 900px;
-    margin: 40px auto;
+  background: var(--bg);
+  padding: 60px 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+/* Headings */
+#contact h1 {
+  font-size: 36px;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+#contact h2 {
+  text-transform: capitalize;
+  color: var(--text-dark);
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* ✅ Responsive Design */
+
+/* For large tablets and smaller laptops */
+@media (max-width: 992px) {
+  #contact {
+    max-width: 700px;
+    padding: 50px 18px;
   }
   #contact h1 {
-    font-size: 36px;
-    color: var(--primary);
-    margin-bottom: 10px;
+    font-size: 32px;
   }
   #contact h2 {
-    text-transform: capitalize;
-    color: var(--text-dark);
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 22px;
   }
+}
+
+/* For tablets and medium devices */
+@media (max-width: 768px) {
+  #contact {
+    max-width: 600px;
+    padding: 45px 16px;
+  }
+  #contact h1 {
+    font-size: 28px;
+  }
+  #contact h2 {
+    font-size: 20px;
+  }
+}
+
+/* For standard mobile phones */
+@media (max-width: 480px) {
+  #contact {
+    max-width: 90%;
+    padding: 35px 14px;
+    margin: 30px auto;
+  }
+  #contact h1 {
+    font-size: 24px;
+  }
+  #contact h2 {
+    font-size: 18px;
+  }
+}
+
+/* For small mobile phones (425px and below) */
+@media (max-width: 425px) {
+  #contact {
+    padding: 30px 12px;
+  }
+  #contact h1 {
+    font-size: 22px;
+  }
+  #contact h2 {
+    font-size: 17px;
+  }
+}
+
+/* For very small screens (375px and below) */
+@media (max-width: 375px) {
+  #contact {
+    padding: 25px 10px;
+  }
+  #contact h1 {
+    font-size: 20px;
+  }
+  #contact h2 {
+    font-size: 16px;
+  }
+}
+
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.contact-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  padding: 28px 30px;
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+}
+
+/* ✅ For tablets and small laptops */
+@media (max-width: 992px) {
   .contact-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-    justify-content: center;
+    gap: 20px;
   }
   .contact-card {
-    background: #fff;
-    border-radius: var(--radius);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    padding: 28px 30px;
-    max-width: 600px;
-    width: 100%;
-    text-align: left;
+    max-width: 550px;
+    padding: 25px 26px;
   }
-  label {
-    display: block;
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 6px;
+}
+
+/* ✅ For tablets (portrait) */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    padding: 16px;
+    gap: 18px;
   }
-  input, textarea {
-    width: 100%;
+  .contact-card {
+    max-width: 500px;
+    padding: 22px 24px;
+  }
+}
+
+/* ✅ For mobile phones */
+@media (max-width: 480px) {
+  .contact-container {
     padding: 12px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    font-size: 15px;
-    margin-bottom: 16px;
+    gap: 16px;
   }
-  textarea {
-    resize: vertical;
-    min-height: 120px;
+  .contact-card {
+    max-width: 100%;
+    padding: 20px 18px;
+    text-align: center; /* Centers text for small screens */
   }
+}
+
+/* ✅ For smaller phones (425px and below) */
+@media (max-width: 425px) {
+  .contact-card {
+    padding: 18px 16px;
+    font-size: 14px;
+  }
+}
+
+/* ✅ For very small screens (375px and below) */
+@media (max-width: 375px) {
+  .contact-container {
+    gap: 14px;
+  }
+  .contact-card {
+    padding: 16px 14px;
+    font-size: 13.5px;
+  }
+}
+ .btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+/* ✅ Keep button centered in all containers */
+.btn-container,
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Hover effect */
+.btn:hover {
+  background: #007070;
+  transform: translateY(-2px);
+}
+
+/* ✅ For tablets and smaller laptops */
+@media (max-width: 992px) {
   .btn {
-    background: var(--primary);
-    color: #fff;
-    border: none;
-    padding: 12px 22px;
-    font-size: 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    padding: 11px 20px;
+    font-size: 15px;
   }
-  .btn:hover {
-    background: #007070;
-    transform: translateY(-2px);
+}
+
+/* ✅ For tablets (portrait) */
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 18px;
+    font-size: 14.5px;
+    border-radius: 8px;
   }
-  
+}
+
+/* ✅ For mobile phones */
+@media (max-width: 480px) {
+  .btn {
+    width: 90%;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin: 0 auto; /* centers button */
+    display: block;
+  }
+}
+
+/* ✅ For smaller phones (425px and below) */
+@media (max-width: 425px) {
+  .btn {
+    font-size: 13.5px;
+    padding: 9px 14px;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* ✅ For small mobile screens (375px and below) */
+@media (max-width: 375px) {
+  .btn {
+    font-size: 13px;
+    padding: 8px 12px;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* ✅ For very small screens (320px and below) */
+@media (max-width: 320px) {
+  .btn {
+    font-size: 12.5px;
+    padding: 8px 10px;
+    width: 95%;
+    border-radius: 6px;
+    margin: 0 auto; /* centers it perfectly */
+    display: block;
+  }
+}
+
+ 
 </style>
 
   </head>
   <body>
     <!-- Navigation -->
-    <nav>
-      <div class="logo">
-        <h2>Justice Legal chamber</h2>
-      </div>
-     <ul>
-  <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
-  <li><a href="#" onclick="showPage('services'); return false;">Services</a></li>
-  <li><a href="#" onclick="showPage('team'); return false;">Team</a></li>
-  <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
-</ul>
-    </nav>
+   <!-- Navigation -->
+<nav class="navbar">
+  <div class="logo">
+    <h2>Umair R. Memon & Maria A. Malik Law Chamber</h2>
+  </div>
+
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home'); return false;">Home</a></li>
+    <li><a href="#" onclick="showPage('services'); return false;">Services</a></li>
+    <li><a href="#" onclick="showPage('team'); return false;">Team</a></li>
+    <li><a href="#" onclick="showPage('contact'); return false;">Contact</a></li>
+  </ul>
+</nav>
+
 
     <!-- Pages -->
     <div id="home" class="page active">

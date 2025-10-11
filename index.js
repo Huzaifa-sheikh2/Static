@@ -27,3 +27,9 @@ function showPage(pageId) {
 document.addEventListener('DOMContentLoaded', () => {
   showPage('home');
 });
+
+
+function toggleMenu() {
+  const navLinks = document.querySelector('.navbar ul');
+  navLinks.classList.toggle('show');
+}
