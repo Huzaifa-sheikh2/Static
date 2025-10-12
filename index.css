@@ -226,7 +226,7 @@ body {
   }
 }
 
-/* @media (max-width: 425px) {
+@media (max-width: 425px) {
   .logo {
     font-size: 14px;
     padding: 4px 0;
@@ -235,11 +235,11 @@ body {
   .logo img {
     max-width: 60px;
   }
-} */
+}
 
 @media (max-width: 375px) {
   .logo {
-    font-size: 5px;
+    font-size: 2px;
     font-weight: 600;
   }
 
@@ -250,8 +250,8 @@ body {
 
 @media (max-width: 320px) {
   .logo {
-    font-size: 6px;
-    font-weight: 600;
+    font-size: 20px;
+    font-weight: 800;
     letter-spacing: -0.5px;
   }
 
@@ -314,44 +314,70 @@ body {
   display: flex;
 }
 
+/* Animation for entrance (fade and slide up) */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .content {
   color: white;
   padding: 5vw; /* Responsive padding */
   text-align: left;
-  max-width: 80%; /* Responsive width */
-  margin: 0 auto; /* Center horizontally */
-  padding-bottom: 10vw; /* Responsive padding bottom */
+  max-width: 80%;
+  margin: 0 auto;
+  padding-bottom: 10vw;
+  
+  /* Transition effects */
+  transition: all 0.5s ease-in-out;
+  
+  /* Initial animation when loaded */
+  opacity: 0;
+  animation: fadeSlideUp 1.2s ease-out forwards;
 }
 
-/* For small screens (typically mobile devices) */
+/* Add smooth hover effect */
+.content:hover {
+  transform: scale(1.02);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* For tablets */
 @media (max-width: 768px) {
   .content {
-    padding: 4vw; /* Adjust padding for smaller screens */
-    max-width: 90%; /* Adjust width for smaller screens */
+    padding: 4vw;
+    max-width: 90%;
   }
 }
 
-/* For even smaller screens */
+/* For phones */
 @media (max-width: 480px) {
   .content {
-    padding: 3vw; /* Adjust padding for very small screens */
-    max-width: 95%; /* Adjust width for very small screens */
+    padding: 3vw;
+    max-width: 95%;
   }
 }
 
-/* For very small screens (e.g., iPhone 5/SE) */
+/* For smaller phones */
 @media (max-width: 375px) {
   .content {
-    padding: 2.5vw; /* Minimal padding for tiny screens */
+    padding: 2.5vw;
   }
 }
 
-/* For extremely small screens (e.g., iPhone 4) */
+/* For very tiny screens */
 @media (max-width: 320px) {
   .content {
-    padding: 2vw; /* Minimal padding for very tiny screens */
+    padding: 2vw;
   }
 }
+
 
 /* Button styling */
 .home-btn {
@@ -362,11 +388,22 @@ body {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+  
+  /* Smooth transition */
+  transition: all 0.3s ease-in-out;
 }
 
+/* Hover effect */
 .home-btn:hover {
   background-color: #008888;
+  transform: scale(1.05); /* Slight zoom */
+  box-shadow: 0 0 15px rgba(0, 162, 168, 0.6); /* Glow effect */
 }
+.home-btn:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 5px rgba(0, 162, 168, 0.5);
+}
+
 
 footer {
   background-color: #003336;
@@ -457,13 +494,47 @@ footer p {
 }
 
 .service-heading {
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: #003336;
   font-size: 34px;
   margin-bottom: 20px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
   line-height: 1.2;
   word-wrap: break-word;
+
+  /* Animation setup */
+  animation: colorChange 15s infinite ease-in-out;
+  transition: color 1s ease-in-out;
 }
+
+/* Keyframes: color changes every 5 seconds */
+@keyframes colorChange {
+  0%   { color: #003336; }  /* Dark greenish */
+  33%  { color: #008888; }  /* Teal */
+  66%  { color: #00A2A8; }  /* Light cyan */
+  100% { color: #003336; }  /* Back to original */
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  .service-heading {
+    font-size: 28px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-heading {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 375px) {
+  .service-heading {
+    font-size: 20px;
+  }
+}
+
 
 /* Tablet styles */
 @media (max-width: 768px) {
@@ -536,16 +607,31 @@ footer p {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: left;
-  transition: transform 0.2s;
   width: 100%;
   max-width: 300px;
   height: auto;
   margin: 10px;
+
+  /* Smooth transitions */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
+/* Hover effect (light and elegant) */
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-color: #00A2A8; /* subtle teal accent */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+    margin: 10px 0;
+    text-align: center;
+  }
+}
+
 
 /* Optional fine-tuning */
 @media (max-width: 1024px) {
