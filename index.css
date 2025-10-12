@@ -79,11 +79,11 @@ body {
 }
 
 .navbar .logo h2 {
-  font-size: 20px;
-  margin: 0;
+  /* margin: 0; */
   color: #ffffff;
   text-align: left;
-  font-family: "Times New Roman", Times, serif;
+  font-family:Arial;
+  margin-right: 10px;
 }
 
 .navbar ul {
@@ -167,13 +167,36 @@ body {
   }
 }
 
+/* Animation keyframes */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to the logo container */
 .logo {
   color: white;
-  font-size: 17px;
+  font-size: 13px;
   font-weight: bold;
   white-space: nowrap;
   display: flex;
   align-items: center;
+  animation: fadeSlideIn 1s ease-out;
+}
+
+/* Make the image responsive with animation */
+.logo img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  margin-right: 1px;
+  animation: fadeSlideIn 1.2s ease-out;
 }
 
 /* Tablet styles */
@@ -184,48 +207,61 @@ body {
     width: 100%;
     justify-content: center;
   }
-}
 
-/* Mobile styles */
-/* For screens up to 480px wide */
-@media (max-width: 480px) {
-  .logo {
-    font-size: 15px;
-    padding: 5px 0;
+  .logo img {
+    max-width: 80px;
   }
 }
 
-/* For screens up to 425px wide */
-@media (max-width: 425px) {
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 25px;
+    padding: 5px 0;
+  }
+
+  .logo img {
+    max-width: 70px;
+  }
+}
+
+/* @media (max-width: 425px) {
   .logo {
     font-size: 14px;
     padding: 4px 0;
   }
-}
 
-/* For screens up to 375px wide */
+  .logo img {
+    max-width: 60px;
+  }
+} */
+
 @media (max-width: 375px) {
   .logo {
-    font-size: 10px;
-    font-weight: 600; /* Slightly less bold for better readability */
+    font-size: 5px;
+    font-weight: 600;
+  }
+
+  .logo img {
+    max-width: 50px;
   }
 }
 
-
-/* Small mobile styles (320px) */
 @media (max-width: 320px) {
   .logo {
-    font-size: 8px;
-    font-weight: 600; /* Slightly less bold for better readability */
-    letter-spacing: -0.3px; /* Tighter spacing to save space */
+    font-size: 6px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
   }
-  
-  /* If logo is too long, allow wrapping */
+
   .logo.allow-wrap {
     white-space: normal;
     line-height: 1.2;
   }
+
 }
+
 
 /* Page handling */
 .page {
@@ -893,6 +929,30 @@ footer p {
     border-radius: 14px;
   }
 }
+
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 80px; /* smaller on tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    max-width: 60px; /* smaller on mobile */
+  }
+}
+@media (max-width: 320px) {
+  .logo img {
+    max-width: 22px; /* smaller on mobile */
+  }
+}
+
+@media (max-width: 375px) {
+  .logo img {
+    max-width: 10px; /* smaller on mobile */
+  }
+}
+
 
 
 
