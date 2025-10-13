@@ -181,8 +181,8 @@ body {
 
 /* Apply animation to the logo container */
 .logo {
-  color: white;
-  font-size: 13px;
+  color: #ffffff;
+  font-size: 10px;
   font-weight: bold;
   white-space: nowrap;
   display: flex;
@@ -192,32 +192,31 @@ body {
 
 /* Make the image responsive with animation */
 .logo img {
-  width: 100%;
+  width: 10%;
   max-width: 200px;
   height: auto;
   margin-right: 1px;
   animation: fadeSlideIn 1.2s ease-out;
 }
 
-/* Tablet styles */
+/* 📱 Tablet styles */
 @media (max-width: 768px) {
   .logo {
-    font-size: 16px;
+    font-size: 10px;
     text-align: center;
     width: 100%;
     justify-content: center;
   }
 
   .logo img {
-    max-width: 80px;
+    max-width: 60px;
   }
 }
 
-
-/* Mobile styles */
+/* 📱 Mobile styles */
 @media (max-width: 480px) {
   .logo {
-    font-size: 25px;
+    font-size: 10px;
     padding: 5px 0;
   }
 
@@ -226,6 +225,7 @@ body {
   }
 }
 
+/* 📱 425px and below */
 @media (max-width: 425px) {
   .logo {
     font-size: 14px;
@@ -237,10 +237,45 @@ body {
   }
 }
 
-@media (max-width: 375px) {
+/* 📱 321px to 360px — New Range */
+/* For extra small devices (321px to 360px) */
+@media (min-width: 321px) and (max-width: 360px) {
   .logo {
-    font-size: 2px;
-    font-weight: 600;
+    font-size: 6px !important;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    white-space: normal; /* allow wrapping */
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .logo img {
+    max-width: 40px;
+  }
+}
+
+/* For small phones (361px to 400px) */
+@media (min-width: 361px) and (max-width: 400px) {
+  .logo {
+    font-size: 7px !important;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    white-space: normal;
+    line-height: 1.3;
+    text-align: center;
+  }
+
+  .logo img {
+    max-width: 45px;
+  }
+}
+
+/* Optional: slightly larger for 401–425px if needed */
+@media (min-width: 401px) and (max-width: 425px) {
+  .logo {
+    font-size: 8px !important;
+    font-weight: 700;
+    text-align: center;
   }
 
   .logo img {
@@ -248,6 +283,8 @@ body {
   }
 }
 
+
+/* 📱 320px and below */
 @media (max-width: 320px) {
   .logo {
     font-size: 20px;
@@ -259,8 +296,8 @@ body {
     white-space: normal;
     line-height: 1.2;
   }
-
 }
+
 
 
 /* Page handling */
@@ -1034,7 +1071,7 @@ footer p {
 .team-img1,
 .team-img2 {
   width: 100%;
-  height: 400px;
+  height: 850px;
   border-radius: 8px;
   object-fit: cover;
   opacity: 0; /* start invisible */
@@ -1063,6 +1100,19 @@ footer p {
 }
 
 /* 💻 For tablets and smaller laptops */
+@media (max-width: 1440px) {
+  .team-img1,
+  .team-img2 {
+    height: 680px;
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .team-img1,
+  .team-img2 {
+    height: 670px;
+  }
+}
 @media (max-width: 992px) {
   .team-img1,
   .team-img2 {
@@ -1070,19 +1120,40 @@ footer p {
   }
 }
 
+
 /* 📱 For mobile devices */
 @media (max-width: 768px) {
   .team-img1,
   .team-img2 {
-    height: 250px;
+    height: 450px;
   }
 }
 
+
 /* 📱 For very small screens */
-@media (max-width: 480px) {
+/* For screens between 426px and 480px */
+@media (min-width: 426px) and (max-width: 480px) {
   .team-img1,
   .team-img2 {
-    height: 200px;
+    height: 600px;
+    
+  }
+}
+
+/* For screens 425px and below */
+@media (max-width: 425px) {
+  .team-img1,
+  .team-img2 {
+    height: 400px;
+    
+  }
+}
+
+
+@media (max-width: 320px) {
+  .team-img1,
+  .team-img2 {
+    height: 300px;
   }
 }
 .contect-btn {
