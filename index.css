@@ -1182,6 +1182,12 @@ footer p {
   }
 }
 
+@media (max-width: 1440px) {
+  .logo img {
+    max-width: 80px; /* for laptop or desktop screens */
+  }
+}
+
 @media (max-width: 480px) {
   .logo img {
     max-width: 60px; /* smaller on mobile */
