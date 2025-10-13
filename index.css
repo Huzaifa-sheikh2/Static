@@ -508,9 +508,9 @@ footer p {
 
 /* Keyframes: color changes every 5 seconds */
 @keyframes colorChange {
-  0%   { color: #003336; }  /* Dark greenish */
-  33%  { color: #008888; }  /* Teal */
-  66%  { color: #00A2A8; }  /* Light cyan */
+  25%   { color: #003336; }  /* Dark greenish */
+  50%  { color: #008888; }  /* Teal */
+  75%  { color: #00A2A8; }  /* Light cyan */
   100% { color: #003336; }  /* Back to original */
 }
 
@@ -716,7 +716,7 @@ footer p {
   flex-wrap: wrap;
 }
 
-.btn1{
+.btn1, .btn2, .btn3, .btn4 {
   background-color: #00A2A8;
   color: white;
   border: none;
@@ -724,47 +724,56 @@ footer p {
   font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
+  transition: all 0.3s ease; /* smooth animation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Keep your unique margins */
+.btn1, .btn2, .btn4 {
   margin-top: 90px;
 }
 
-.btn2{
-  background-color: #00A2A8;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 90px;
-}
-
-.btn3{
-  background-color: #00A2A8;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
+.btn3 {
   margin-top: 52px;
 }
 
-.btn4{
-  background-color: #00A2A8;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 90px;
+/* Hover effect */
+.btn1:hover,
+.btn2:hover,
+.btn3:hover,
+.btn4:hover {
+  background-color: #008b8f; /* slightly darker */
+  transform: scale(1.05); /* enlarge smoothly */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* Click effect */
+.btn1:active,
+.btn2:active,
+.btn3:active,
+.btn4:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 
 .Team-detail {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;   /* allows wrapping if space is small */
-  gap: 20px;         /* spacing between cards */
+  flex-wrap: wrap;
+  gap: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .card-team {
@@ -772,18 +781,39 @@ footer p {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
   margin-top: 10px;
   text-align: left;
-  transition: transform 0.2s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Subtle hover effect */
+.card-team:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* 📱 Tablet view (<= 768px) */
 @media (max-width: 768px) {
   .card-team {
-    width: 45%;  /* two cards per row on tablet */
+    width: 45%; /* two cards per row */
     padding: 18px;
   }
 }
@@ -791,18 +821,76 @@ footer p {
 /* 📱 Mobile view (<= 480px) */
 @media (max-width: 480px) {
   .card-team {
-    width: 90%;  /* one card per row on mobile */
+    width: 90%; /* one card per row */
     padding: 16px;
     margin: 10px auto;
   }
 }
 
-.card-team h1 {
+.card-team h1,
+.card-team h3,
+.card-team p {
   color: #004A4E;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
+  opacity: 0; /* start invisible */
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+/* Slight delays for nice staggered effect */
+.card-team h1 {
   font-size: 28px;
   margin-bottom: 10px;
+  animation-delay: 0.2s;
+}
+
+.card-team h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  animation-delay: 0.4s;
+}
+
+.card-team p {
+  font-size: 20px;
+  line-height: 1.5;
+  animation-delay: 0.6s;
+}
+
+/* Hover effect for title */
+.card-team h1:hover {
+  text-decoration: underline;
+}
+
+/* Keyframes for fade + upward slide */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Tablet view (<= 768px) */
+.card-team h1,
+.card-team h3,
+.card-team p {
+  color: #004A4E;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  opacity: 0; /* start hidden for animation */
+  transform: translateY(20px);
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+/* ✨ Staggered animation delay for smooth flow */
+.card-team h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  animation-delay: 0.2s;
 }
 
 .card-team h1:hover {
@@ -810,22 +898,30 @@ footer p {
 }
 
 .card-team h3 {
-  color: #004A4E;
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
   font-size: 22px;
   margin-bottom: 8px;
+  animation-delay: 0.4s;
 }
 
 .card-team p {
-  color: #004A4E;
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
   line-height: 1.5;
+  animation-delay: 0.6s;
 }
 
-/* 📱 Tablet view (<= 768px) */
+/* 🌈 Animation keyframes */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 💻 Tablet view (<= 768px) */
 @media (max-width: 768px) {
   .card-team h1 {
     font-size: 24px;
@@ -858,11 +954,60 @@ footer p {
   font-family: 'Times New Roman', Times, serif;
   font-size: 40px;
   text-decoration: underline;
-  text-underline-offset: 6px; /* makes underline look cleaner */
+  text-underline-offset: 6px;
   margin-bottom: 30px;
+  animation: colorChange 9s infinite ease-in-out; /* 3 colors × 3 seconds = 9s total */
+}
+
+/* 🎨 Keyframes for smooth color transitions */
+@keyframes colorChange {
+  0% {
+    color: #004A4E; /* dark teal */
+  }
+  33% {
+    color: #00A2A8; /* bright aqua */
+  }
+  66% {
+    color: #008080; /* medium teal */
+  }
+  100% {
+    color: #004A4E; /* back to original */
+  }
 }
 
 /* 📱 Tablet view (<= 768px) */
+.team-heading {
+  color: #004A4E;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 40px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  margin-bottom: 30px;
+  animation: colorChange 9s infinite ease-in-out; /* changes color every 3s */
+}
+
+/* 🎨 Smooth color animation */
+@keyframes colorChange {
+  0% {
+    color: #004A4E; /* dark teal */
+    text-decoration-color: #004A4E;
+  }
+  33% {
+    color: #00A2A8; /* bright aqua */
+    text-decoration-color: #00A2A8;
+  }
+  66% {
+    color: #008080; /* medium teal */
+    text-decoration-color: #008080;
+  }
+  100% {
+    color: #004A4E; /* back to original */
+    text-decoration-color: #004A4E;
+  }
+}
+
+/* 💻 Tablet view (<= 768px) */
 @media (max-width: 768px) {
   .team-heading {
     font-size: 32px;
@@ -891,10 +1036,33 @@ footer p {
   width: 100%;
   height: 400px;
   border-radius: 8px;
-  object-fit: cover; /* Keeps image proportionate while filling space */
+  object-fit: cover;
+  opacity: 0; /* start invisible */
+  transform: scale(0.95);
+  animation: fadeZoomIn 1.2s ease forwards; /* animation on load */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* For tablets and smaller laptops */
+/* 💫 Hover effect */
+.team-img1:hover,
+.team-img2:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ✨ Fade + zoom-in keyframes */
+@keyframes fadeZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 💻 For tablets and smaller laptops */
 @media (max-width: 992px) {
   .team-img1,
   .team-img2 {
@@ -902,7 +1070,7 @@ footer p {
   }
 }
 
-/* For mobile devices */
+/* 📱 For mobile devices */
 @media (max-width: 768px) {
   .team-img1,
   .team-img2 {
@@ -910,36 +1078,12 @@ footer p {
   }
 }
 
-/* For very small screens */
+/* 📱 For very small screens */
 @media (max-width: 480px) {
   .team-img1,
   .team-img2 {
     height: 200px;
   }
-}
-
-
-.Team-btn{
-  background-color: #00A2A8;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 20px;
-  display: block;
-  margin-right: auto;
-}
-.Team-btn:hover{
-  background-color: #008888;
-}
-.Team-btn a{
-  text-decoration: none;
-  color: white;
-}
-.home-btn{
-  margin: auto;
 }
 .contect-btn {
   background-color: #008888;
@@ -951,9 +1095,8 @@ footer p {
   border-radius: 20px;
   margin-top: 20px;
   transition: background-color 0.2s ease;
-  display: block;
+  /* display: block; */
   margin: 20px auto 0;
-  text-decoration: none; /* ✅ removes any underline */
 }
 
 .contect-btn:hover {
@@ -975,6 +1118,23 @@ footer p {
     font-size: 14.5px;
     padding: 9px 16px;
     border-radius: 18px;
+    margin-left: 200px;
+  }
+}
+@media (max-width: 1024px) {
+  .contect-btn {
+    font-size: 14.5px;
+    padding: 9px 16px;
+    border-radius: 18px;
+    margin-left: 260px;
+  }
+}
+@media (max-width: 1440px) {
+  .contect-btn {
+    font-size: 14.5px;
+    padding: 9px 16px;
+    border-radius: 18px;
+    margin-left: 230px;
   }
 }
 
@@ -1035,10 +1195,14 @@ footer p {
 
 @media (max-width: 375px) {
   .logo img {
-    max-width: 10px; /* smaller on mobile */
+    margin-left: 3px;
+    max-width: 24px; /* smaller on mobile */
   }
 }
-
-
-
-
+.contect-btn {
+  background-color: #008888;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;}
