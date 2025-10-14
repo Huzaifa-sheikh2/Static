@@ -296,7 +296,42 @@
   }
 }
 
- 
+ /* --- collapsible card styles --- */
+.criminal-card .dot-points {
+  margin: 0.5rem 0 0 1.15rem;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* hide by default with max-height for animation */
+.criminal-card .more-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.36s ease;
+}
+
+/* show when card has .expanded */
+.criminal-card.expanded .more-text {
+  /* big enough to fit content — increase if content is longer */
+  max-height: 400px;
+}
+
+/* show dots by default; hide when expanded */
+.criminal-card .dots { display: inline; }
+.criminal-card.expanded .dots { display: none; }
+
+/* Make ul show bullet style matching your primary color */
+.criminal-card .dot-points li {
+  margin-bottom: 8px;
+  list-style: disc;
+  color: var(--text-dark);
+}
+
+/* optional: ensure button styles match your existing .btn rules */
+.toggle-btn {
+  margin-top: 12px;
+}
+
 </style>
 
   </head>
@@ -340,13 +375,31 @@
       <h1 class="service-heading">⚖️ Our Services</h1>
       <div class="underline"></div>
       <div class="card-container">
-        <div class="card">
-          <h2>CRIMINAL LAW</h2>
-          <p>
-            We take pride in our team of seasoned criminal law experts who possess a deep understanding of the legal system and the strategic intellect requ.
-          </p>
-          <button class="btn1">Learn more</button>
-        </div>
+        <!-- Replace your existing CRIMINAL LAW card with this -->
+<div class="card criminal-card">
+  <h2>CRIMINAL LAW</h2>
+
+  <!-- short intro always visible -->
+  <p class="intro">
+    We take pride in our team of seasoned criminal law experts who possess a deep understanding of the legal system and the strategic intellect required for both prosecution and defence. Whether you are a complainant seeking justice or an accused person facing serious allegations, the legal process can place your rights, reputation and future at risk.
+    <span class="dots">...</span>
+  </p>
+
+  <!-- hidden extra content (uses max-height for smooth slide) -->
+  <div class="more-text">
+    <ul class="dot-points">
+      <li>Crimes against Persons (such as assault, murder or harassment)</li>
+      <li>Crimes against Property (including theft, forgery & fraud)</li>
+      <li>Minor or Petty Offences (traffic violations, disorderly conduct, etc.)</li>
+      <li>White-collar and Financial Crimes (Corruption, Embezzlement and Money Laundering)</li>
+      <li>Cybercrimes and technology-related offences</li>
+      <li>All other statutory and regulatory offences under Pakistani law</li>
+    </ul>
+  </div>
+
+  <button class="btn1 toggle-btn" onclick="toggleText(this)">Learn more</button>
+</div>
+
 
         <div class="card">
           <h2>Misdemeanor Offenses</h2>
@@ -457,7 +510,25 @@
 
 
     
-    <script src="index.js"></script>
+    <script src="index.js">
+      
+
+    </script>
+    <script>
+function toggleText(button) {
+  const card = button.closest('.criminal-card');
+  if (!card) return;
+
+  card.classList.toggle('expanded');
+
+  // update button text
+  if (card.classList.contains('expanded')) {
+    button.textContent = 'Show less';
+  } else {
+    button.textContent = 'Learn more';
+  }
+}
+</script>
     
 </script>
   </body>
