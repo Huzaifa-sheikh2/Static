@@ -332,6 +332,17 @@
   margin-top: 12px;
 }
 
+.full-text {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.card.expanded .full-text {
+  max-height: 1000px; /* enough to fit text */
+}
+
+
 </style>
 
   </head>
@@ -401,20 +412,26 @@
 </div>
 
 
-        <div class="card">
-          <h2>Misdemeanor Offenses</h2>
-          <p>
-            Representation for misdemeanor charges such as DUI, petty theft,
-            simple assault, and disorderly conduct.
-          </p>
-          <button class="btn2">Learn more</button>
-        </div>
+       <div class="card banking-card">
+  <h2>BANKING LAW</h2>
+  <p class="short-text">
+    We are committed to delivering strategic and client-focused legal counsel in the dynamic banking and finance sector. Whether you are a commercial bank, a financial institution or a private individual, our legal experts are equipped to protect your interests and ensure full legal compliance in all financial dealings.
+  </p>
+  <p class="full-text" style="display: none;">
+    
+    Our services are structured across the three core areas as we offer end-to-end legal support covering regulatory compliance (legal opinion), financial dispute resolution, asset recovery and transaction execution under the Financial Institutions (Recovery of Finances) Ordinance, 2001.
+  </p>
+  <button class="btn2" onclick="toggleText(this)">Learn more</button>
+</div>
 
         <div class="card">
           <h2>Appeals & Post-Conviction</h2>
           <p>
-            Experienced appellate lawyers who can review your case and file
-            appeals based on legal errors or new evidence.
+           CIVIL (CONTRACTUAL & PROPERTY) LAW
+Our team offers comprehensive services to navigate the complexities of any transaction relating to the purchasing, selling or leasing of any property. Be it movable or immovable property, by an individual or a business, we have got you covered.<br>
+Our general civil litigation team provides you services also relating to contractual performances that include, but are not limited to, suits for recovery of money, compensation and other damages (liquidated and non-liquidated), seeking specific performance of a contract or ordinary employment with private or public companies/departments or institutions.
+<br>
+We believe and ensure that our clients exercise due diligence than to face the hurdles that may arise later in form of expensive litigation.We believe and ensure that our clients exercise due diligence than to face the hurdles that may arise later in form of expensive litigation.
           </p>
           <button class="btn3">Learn more</button>
         </div>
@@ -518,10 +535,7 @@
 function toggleText(button) {
   const card = button.closest('.criminal-card');
   if (!card) return;
-
   card.classList.toggle('expanded');
-
-  // update button text
   if (card.classList.contains('expanded')) {
     button.textContent = 'Show less';
   } else {
@@ -530,6 +544,25 @@ function toggleText(button) {
 }
 </script>
     
+
+</script>
+<script>
+  function toggleText(button) {
+  const card = button.closest('.card');
+  if (!card) return;
+
+  card.classList.toggle('expanded');
+
+  const fullText = card.querySelector('.full-text');
+  if (card.classList.contains('expanded')) {
+    fullText.style.display = 'block';
+    button.textContent = 'Show less';
+  } else {
+    fullText.style.display = 'none';
+    button.textContent = 'Learn more';
+  }
+}
+
 </script>
   </body>
 </html>
