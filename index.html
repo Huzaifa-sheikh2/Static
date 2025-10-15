@@ -332,14 +332,21 @@
   margin-top: 12px;
 }
 
-.full-text {
+.card {
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.card .full-text,
+.card .more-text {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
 
-.card.expanded .full-text {
-  max-height: 1000px; /* enough to fit text */
+.card.expanded .full-text,
+.card.expanded .more-text {
+  max-height: 500px; /* adjust based on your content length */
 }
 
 
@@ -425,43 +432,86 @@
 </div>
 
         <div class="card">
-          <h2>Appeals & Post-Conviction</h2>
-          <p>
-           CIVIL (CONTRACTUAL & PROPERTY) LAW
-Our team offers comprehensive services to navigate the complexities of any transaction relating to the purchasing, selling or leasing of any property. Be it movable or immovable property, by an individual or a business, we have got you covered.<br>
-Our general civil litigation team provides you services also relating to contractual performances that include, but are not limited to, suits for recovery of money, compensation and other damages (liquidated and non-liquidated), seeking specific performance of a contract or ordinary employment with private or public companies/departments or institutions.
-<br>
-We believe and ensure that our clients exercise due diligence than to face the hurdles that may arise later in form of expensive litigation.We believe and ensure that our clients exercise due diligence than to face the hurdles that may arise later in form of expensive litigation.
-          </p>
-          <button class="btn3">Learn more</button>
-        </div>
+  <h2>CIVIL (CONTRACTUAL & PROPERTY) LAW</h2>
+
+  <!-- Always visible short part -->
+  <p class="short-text">
+    Our team offers comprehensive services to navigate the complexities of any transaction relating to the purchase, sale, or lease of property.Be it movable or immovable property, by an individual or a business, we have got you covered. Our general civil litigation team provides you services
+  </p>
+
+  <!-- Hidden part -->
+  <div class="full-text">
+    <p>
+     
+      also relating to contractual performances that include, but are not limited to, suits for recovery of money, compensation, and other damages (liquidated and non-liquidated), seeking specific performance of a contract, or ordinary employment with private or public companies/departments or institutions.<br><br>
+      We ensure that our clients exercise due diligence early on to avoid the hurdles that may arise later in the form of expensive litigation.
+    </p>
+  </div>
+
+  <button class="btn3" onclick="toggleText(this)">Learn more</button>
+</div>
 
         <div class="card">
-          <h2>Juvenile Defense</h2>
-          <p>
-            Specialized representation for minors facing criminal charges,
-            focusing on rehabilitation over punishment.
-          </p>
-          <button class="btn4">Learn more</button>
-        </div>
+  <h2>Family law</h2>
+
+  <!-- Always visible short part -->
+  <p class="short-text">
+    In the domain of Family Law, we recognize the sensitivity of the issues and the profound impact these matters have on the lives of those involved.We are committed to protecting the rights of all parties, whether it involves the restoration of conjugal rights, dissolution of marriage, the return of dower and dowry articles, maintenance claims or the custody of children
+  </p>
+
+  <!-- Hidden part -->
+  <div class="full-text">
+    <p>
+      
+      Where appropriate, we also offer Alternative Dispute Resolution mechanisms to help parties resolve their differences amicably. This approach not only preserves the family structure but also protects litigants from unnecessary emotional and financial distress.
+      , while upholding the principles of justice and equity in favour of the aggrieved.
+    </p>
+  </div>
+
+  <button class="btn4" onclick="toggleText(this)">Learn more</button>
+</div>
+
+
+       <div class="card">
+  <h2>CONSUMER LAW</h2>
+
+  <!-- Short visible text -->
+  <p class="short-text">
+    Government of Sindh now protects the rights and interests of consumers under the Sindh Consumer Protection Act, 2014 and provides remedies for defective products and faulty services. We have you covered in consumer litigation at Courts and Councils — from lodging a complaint to providing defense.
+    It is necessary to understand the technicalities of this law and the evolving unfair practices.
+  </p>
+
+  <!-- Hidden text -->
+  <div class="full-text">
+    <p>
+       
+      
+      With a keen eye on the evolving practices and regulations, we can assist you in making strategic decisions to compete in a free and fair market environment, as well as achieve maximum consumer satisfaction.
+    </p>
+  </div>
+
+  <button class="btn4" onclick="toggleText(this)">Learn more</button>
+</div>
 
         <div class="card">
-          <h2>White Collar Crimes</h2>
-          <p>
-            Defense against allegations of fraud, embezzlement, money
-            laundering, and other financial crimes.
-          </p>
-          <button class="btn4">Learn more</button>
-        </div>
+  <h2>Intellectual Property (IP) Law</h2>
 
-        <div class="card">
-          <h2>Violent Crimes</h2>
-          <p>
-            Aggressive defense strategies for charges including homicide,
-            domestic violence, and weapons offenses.
-          </p>
-          <button class="btn4">Learn more</button>
-        </div>
+  <p class="short-text">
+    We are here to safeguard your creativity and innovation in intangible assets such as logos, designs, art, and literature.
+  </p>
+
+  <div class="full-text">
+    <p>
+      From registering your trademark, design, or patent, and securing your copyright 
+      to enforcement before the Intellectual Property Organization and its Tribunals — 
+      we provide hassle-free legal services while you stay at home.<br><br>
+      We also educate clients on fair competition ethics and practices to avoid anti-competitive behavior.
+    </p>
+  </div>
+
+  <button class="btn4" onclick="toggleText(this)">Learn more</button>
+</div>
+
       </div>
     </div>
 
@@ -531,38 +581,29 @@ We believe and ensure that our clients exercise due diligence than to face the h
       
 
     </script>
-    <script>
+  <script>
 function toggleText(button) {
-  const card = button.closest('.criminal-card');
-  if (!card) return;
-  card.classList.toggle('expanded');
-  if (card.classList.contains('expanded')) {
-    button.textContent = 'Show less';
-  } else {
-    button.textContent = 'Learn more';
-  }
-}
-</script>
-    
-
-</script>
-<script>
-  function toggleText(button) {
   const card = button.closest('.card');
-  if (!card) return;
+  const allCards = document.querySelectorAll('.card');
 
-  card.classList.toggle('expanded');
+  // Collapse all cards first
+  allCards.forEach(c => {
+    c.classList.remove('expanded');
+    const btn = c.querySelector('button');
+    if (btn) btn.textContent = 'Learn more';
+  });
 
-  const fullText = card.querySelector('.full-text');
-  if (card.classList.contains('expanded')) {
-    fullText.style.display = 'block';
+  // Then expand only the clicked card
+  if (!card.classList.contains('expanded')) {
+    card.classList.add('expanded');
     button.textContent = 'Show less';
   } else {
-    fullText.style.display = 'none';
+    card.classList.remove('expanded');
     button.textContent = 'Learn more';
   }
 }
-
 </script>
+
+
   </body>
 </html>
