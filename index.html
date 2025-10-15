@@ -296,57 +296,23 @@
   }
 }
 
- /* --- collapsible card styles --- */
-.criminal-card .dot-points {
-  margin: 0.5rem 0 0 1.15rem;
-  padding: 0;
-  line-height: 1.6;
-}
-
-/* hide by default with max-height for animation */
-.criminal-card .more-text {
+/* Hide the extra content by default */
+.card .more-text,
+.card .full-text {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.36s ease;
+  transition: max-height 0.3s ease;
 }
 
-/* show when card has .expanded */
-.criminal-card.expanded .more-text {
-  /* big enough to fit content — increase if content is longer */
-  max-height: 400px;
+/* Show content only when card is expanded */
+.card.expanded .more-text,
+.card.expanded .full-text {
+  max-height: 1000px; /* Large enough to fit content */
 }
 
-/* show dots by default; hide when expanded */
-.criminal-card .dots { display: inline; }
-.criminal-card.expanded .dots { display: none; }
-
-/* Make ul show bullet style matching your primary color */
-.criminal-card .dot-points li {
-  margin-bottom: 8px;
-  list-style: disc;
-  color: var(--text-dark);
-}
-
-/* optional: ensure button styles match your existing .btn rules */
-.toggle-btn {
-  margin-top: 12px;
-}
-
-.card {
-  overflow: hidden;
-  transition: all 0.4s ease;
-}
-
-.card .full-text,
-.card .more-text {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-
-.card.expanded .full-text,
-.card.expanded .more-text {
-  max-height: 500px; /* adjust based on your content length */
+/* Hide dots when expanded */
+.card.expanded .dots {
+  display: none;
 }
 
 
@@ -424,8 +390,7 @@
   <p class="short-text">
     We are committed to delivering strategic and client-focused legal counsel in the dynamic banking and finance sector. Whether you are a commercial bank, a financial institution or a private individual, our legal experts are equipped to protect your interests and ensure full legal compliance in all financial dealings.
   </p>
-  <p class="full-text" style="display: none;">
-    
+  <p class="full-text">
     Our services are structured across the three core areas as we offer end-to-end legal support covering regulatory compliance (legal opinion), financial dispute resolution, asset recovery and transaction execution under the Financial Institutions (Recovery of Finances) Ordinance, 2001.
   </p>
   <button class="btn2" onclick="toggleText(this)">Learn more</button>
@@ -581,28 +546,22 @@
       
 
     </script>
-  <script>
+<script>
 function toggleText(button) {
   const card = button.closest('.card');
-  const allCards = document.querySelectorAll('.card');
-
-  // Collapse all cards first
-  allCards.forEach(c => {
-    c.classList.remove('expanded');
-    const btn = c.querySelector('button');
-    if (btn) btn.textContent = 'Learn more';
-  });
-
-  // Then expand only the clicked card
-  if (!card.classList.contains('expanded')) {
-    card.classList.add('expanded');
+  
+  // Toggle the expanded state for only this card
+  card.classList.toggle('expanded');
+  
+  // Update button text based on current state
+  if (card.classList.contains('expanded')) {
     button.textContent = 'Show less';
   } else {
-    card.classList.remove('expanded');
     button.textContent = 'Learn more';
   }
 }
 </script>
+
 
 
   </body>

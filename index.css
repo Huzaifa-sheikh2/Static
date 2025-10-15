@@ -637,69 +637,113 @@ footer p {
     margin-bottom: 10px;
   }
 }
-.card {
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: left;
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  margin: 10px;
-
-  /* Smooth transitions */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+/* Service Cards Styling */
+/* Service Cards - Complete Override */
+#services .card {
+  background: #fff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08) !important;
+  padding: 28px 30px !important;
+  margin-bottom: 20px !important;
+  transition: all 0.3s ease !important;
+  text-align: left !important;
+  width: 100% !important;
+  max-width: 700px !important;
 }
 
-/* Hover effect (light and elegant) */
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  border-color: #00A2A8; /* subtle teal accent */
+#services .card h2 {
+  color: #008888 !important;
+  margin-bottom: 15px !important;
+  font-size: 24px !important;
+  transition: all 0.3s ease !important;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .card {
-    max-width: 100%;
-    margin: 10px 0;
-    text-align: center;
-  }
+#services .card p {
+  color: #0f172a !important;
+  line-height: 1.6 !important;
+  margin-bottom: 15px !important;
+  transition: all 0.3s ease !important;
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
 }
 
-
-/* Optional fine-tuning */
-@media (max-width: 1024px) {
-  .card-container {
-    gap: 30px; /* slightly smaller gap on smaller laptops */
-  }
+/* Hide the extra content by default */
+#services .card .more-text,
+#services .card .full-text {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.5s ease, opacity 0.3s ease !important;
+  margin-top: 10px !important;
+  opacity: 0 !important;
 }
 
-@media (max-width: 768px) {
-  .card-container {
-    gap: 20px;
-  }
+/* Show content only when card is expanded */
+#services .card.expanded .more-text,
+#services .card.expanded .full-text {
+  max-height: 1000px !important;
+  opacity: 1 !important;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+/* Hide dots when expanded */
+#services .card.expanded .dots {
+  display: none !important;
 }
 
-.card h2 {
-  color: #003336;
-  font-size: 24px;
-  margin-bottom: 10px;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+/* Style for the toggle buttons */
+#services .card button {
+  background: #008888 !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 12px 22px !important;
+  font-size: 16px !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  margin-top: 15px !important;
+  position: relative !important;
 }
 
-.card p {
-  color: #555;
-  font-size: 16px;
-  line-height: 1.5;
+#services .card button:hover {
+  background: #007070 !important;
+  transform: translateY(-2px) !important;
 }
 
+/* Remove conflicting margins */
+#services .btn1, 
+#services .btn2, 
+#services .btn3, 
+#services .btn4 {
+  margin-top: 15px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Dot points styling */
+#services .dot-points {
+  padding-left: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+#services .dot-points li {
+  margin-bottom: 8px !important;
+  line-height: 1.4 !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Card container */
+#services .card-container {
+  display: flex !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 30px !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Hover effect */
+#services .card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
 /* Tablet screens (<=768px) */
 @media (max-width: 768px) {
   .card {
