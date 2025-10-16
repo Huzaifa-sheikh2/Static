@@ -441,94 +441,81 @@ body {
   box-shadow: 0 0 5px rgba(0, 162, 168, 0.5);
 }
 
-
 footer {
   background-color: #003336;
   color: white;
   text-align: center;
   padding: 15px;
   width: 100%;
-  min-height: 90px;
-  height: auto;
+  min-height: 60px; /* Changed to min-height for flexibility */
   position: fixed;
-  bottom: -2px;
+  bottom: 0; /* Changed from -7px to 0 for consistency */
   left: 0;
   transition: bottom 0.5s ease;
   box-sizing: border-box;
   z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Added for vertical centering */
+  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
 }
 
-/* Tablet styles */
+footer a {
+  color: #66cccc;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 5px 10px; /* Reduced vertical margin */
+  display: inline-block;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer h3 {
+  margin: 0;
+  font-size: 16px;
+  padding: 5px 0; /* Replaced margin with padding for better control */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   footer {
-    min-height: 80px;
-    padding: 12px 15px;
-    font-size: 14px;
+    padding: 10px;
+    min-height: 50px;
   }
   
-  /* Adjust for content that might wrap */
-  footer * {
-    line-height: 1.4;
+  footer h3 {
+    font-size: 14px;
+    padding: 3px 0;
+  }
+  
+  footer a {
+    font-size: 14px;
+    margin: 3px 8px;
   }
 }
 
-/* Mobile styles */
 @media (max-width: 480px) {
   footer {
-    min-height: 70px;
-    padding: 10px;
-    font-size: 13px;
-  }
-  
-  /* Stack footer content vertically if needed */
-  footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
-}
-
-/* Small mobile styles (320px) */
-@media (max-width: 320px) {
-  footer {
-    min-height: 60px;
+    flex-direction: column; /* Stacks content vertically */
     padding: 8px;
-    font-size: 12px;
+    min-height: auto; /* Allows height to adjust to content */
   }
   
-  /* Ensure footer doesn't overflow */
-  footer * {
-    max-width: 100%;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* Landscape mobile */
-@media (max-width: 768px) and (orientation: landscape) {
-  footer {
-    min-height: 50px;
-    padding: 8px 15px;
+  footer h3 {
+    font-size: 13px;
+    padding: 5px 0 3px;
+    order: 2; /* Moves title below links */
   }
   
-  /* More compact in landscape */
-  footer p {
-    margin: 2px 0;
+  footer a {
+    font-size: 13px;
+    margin: 2px 5px;
+    order: 1; /* Links appear first */
   }
 }
-
-/* For when footer is visible */
-footer.show {
-  bottom: 0;
-}
-
-footer p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
+/* Tablet styles */
 
 .service-heading {
   font-family: Georgia, 'Times New Roman', Times, serif;
@@ -856,97 +843,31 @@ footer p {
     transform: translateY(0);
   }
 }
-
 .card-team {
-  width: 700px;
+  width: 600px;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px;
-  margin-top: 10px;
+  padding: 15px 20px; /* Reduced vertical padding */
+  margin: 15px auto; /* Reduced margin and centered */
+  margin-top: 5px; /* Reduced top margin */
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
+  transform: translateY(20px); /* Reduced animation distance */
+  animation: fadeInUp 0.6s ease forwards; /* Faster animation */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
 }
 
-/* Subtle hover effect */
 .card-team:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02); /* Reduced hover scale */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Reduced hover shadow */
 }
 
-/* Fade-in animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 📱 Tablet view (<= 768px) */
-@media (max-width: 768px) {
-  .card-team {
-    width: 45%; /* two cards per row */
-    padding: 18px;
-  }
-}
-
-/* 📱 Mobile view (<= 480px) */
-@media (max-width: 480px) {
-  .card-team {
-    width: 90%; /* one card per row */
-    padding: 16px;
-    margin: 10px auto;
-  }
-}
-
-.card-team h1,
-.card-team h3,
-.card-team p {
-  color: #004A4E;
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-  opacity: 0; /* start invisible */
-  transform: translateY(20px);
-  animation: fadeSlideUp 0.8s ease forwards;
-}
-
-/* Slight delays for nice staggered effect */
-.card-team h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  animation-delay: 0.2s;
-}
-
-.card-team h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
-  animation-delay: 0.4s;
-}
-
-.card-team p {
-  font-size: 20px;
-  line-height: 1.5;
-  animation-delay: 0.6s;
-}
-
-/* Hover effect for title */
-.card-team h1:hover {
-  text-decoration: underline;
-}
-
-/* Keyframes for fade + upward slide */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
     transform: translateY(20px);
   }
   to {
@@ -955,23 +876,23 @@ footer p {
   }
 }
 
-/* 📱 Tablet view (<= 768px) */
+/* Typography with reduced spacing */
 .card-team h1,
 .card-team h3,
 .card-team p {
   color: #004A4E;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
-  opacity: 0; /* start hidden for animation */
-  transform: translateY(20px);
-  animation: fadeSlideUp 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(15px); /* Reduced animation distance */
+  animation: fadeSlideUp 0.6s ease forwards; /* Faster animation */
+  margin: 0; /* Reset margins */
 }
 
-/* ✨ Staggered animation delay for smooth flow */
 .card-team h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  animation-delay: 0.2s;
+  font-size: 22px; /* Reduced from 28px */
+  margin-bottom: 6px; /* Reduced spacing */
+  animation-delay: 0.15s; /* Faster delay */
 }
 
 .card-team h1:hover {
@@ -979,22 +900,21 @@ footer p {
 }
 
 .card-team h3 {
-  font-size: 22px;
-  margin-bottom: 8px;
-  animation-delay: 0.4s;
+  font-size: 18px; /* Reduced from 22px */
+  margin-bottom: 5px; /* Reduced spacing */
+  animation-delay: 0.3s; /* Faster delay */
 }
 
 .card-team p {
-  font-size: 20px;
-  line-height: 1.5;
-  animation-delay: 0.6s;
+  font-size: 16px; /* Reduced from 20px */
+  line-height: 1.4; /* Reduced line height */
+  animation-delay: 0.45s; /* Faster delay */
 }
 
-/* 🌈 Animation keyframes */
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(15px);
   }
   to {
     opacity: 1;
@@ -1002,136 +922,103 @@ footer p {
   }
 }
 
-/* 💻 Tablet view (<= 768px) */
+/* Tablet view (<= 768px) */
 @media (max-width: 768px) {
+  .card-team {
+    width: 45%;
+    padding: 12px 15px; /* Reduced padding */
+    margin: 10px; /* Reduced margin */
+  }
+
   .card-team h1 {
-    font-size: 24px;
-  }
-  .card-team h3 {
     font-size: 20px;
+    margin-bottom: 5px;
   }
-  .card-team p {
-    font-size: 18px;
-  }
-}
 
-/* 📱 Mobile view (<= 480px) */
-@media (max-width: 480px) {
-  .card-team h1 {
-    font-size: 22px;
-  }
   .card-team h3 {
-    font-size: 18px;
-  }
-  .card-team p {
     font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .card-team p {
+    font-size: 14px;
+    line-height: 1.3;
   }
 }
 
+/* Mobile view (<= 480px) */
+@media (max-width: 480px) {
+  .card-team {
+    width: 90%;
+    padding: 10px 12px; /* Reduced padding */
+    margin: 8px auto; /* Reduced margin */
+  }
 
+  .card-team h1 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .card-team h3 {
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+
+  .card-team p {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+}
+
+/* Team heading with reduced size */
 .team-heading {
   color: #004A4E;
   text-align: center;
   font-family: 'Times New Roman', Times, serif;
-  font-size: 40px;
+  font-size: 32px; /* Reduced from 40px */
   text-decoration: underline;
-  text-underline-offset: 6px;
-  margin-bottom: 30px;
-  animation: colorChange 9s infinite ease-in-out; /* 3 colors × 3 seconds = 9s total */
+  text-underline-offset: 5px; /* Reduced offset */
+  margin-bottom: 20px; /* Reduced margin */
+  animation: colorChange 9s infinite ease-in-out;
 }
 
-/* 🎨 Keyframes for smooth color transitions */
 @keyframes colorChange {
   0% {
-    color: #004A4E; /* dark teal */
-  }
-  33% {
-    color: #00A2A8; /* bright aqua */
-  }
-  66% {
-    color: #008080; /* medium teal */
-  }
-  100% {
-    color: #004A4E; /* back to original */
-  }
-}
-
-/* 📱 Tablet view (<= 768px) */
-.team-heading {
-  color: #004A4E;
-  text-align: center;
-  font-family: 'Times New Roman', Times, serif;
-  font-size: 40px;
-  text-decoration: underline;
-  text-underline-offset: 6px;
-  margin-bottom: 30px;
-  animation: colorChange 9s infinite ease-in-out; /* changes color every 3s */
-}
-
-/* 🎨 Smooth color animation */
-@keyframes colorChange {
-  0% {
-    color: #004A4E; /* dark teal */
+    color: #004A4E;
     text-decoration-color: #004A4E;
   }
   33% {
-    color: #00A2A8; /* bright aqua */
+    color: #00A2A8;
     text-decoration-color: #00A2A8;
   }
   66% {
-    color: #008080; /* medium teal */
+    color: #008080;
     text-decoration-color: #008080;
   }
   100% {
-    color: #004A4E; /* back to original */
+    color: #004A4E;
     text-decoration-color: #004A4E;
   }
 }
 
-/* 💻 Tablet view (<= 768px) */
-@media (max-width: 768px) {
-  .team-heading {
-    font-size: 32px;
-    text-underline-offset: 5px;
-  }
-}
-
-/* 📱 Mobile view (<= 480px) */
-@media (max-width: 480px) {
-  .team-heading {
-    font-size: 26px;
-    text-underline-offset: 4px;
-  }
-}
-
-/* 📱 Very small screens (<= 320px) */
-@media (max-width: 320px) {
-  .team-heading {
-    font-size: 22px;
-    text-underline-offset: 3px;
-  }
-}
-
+/* Team images with reduced size */
 .team-img1,
 .team-img2 {
   width: 100%;
-  height: 850px;
   border-radius: 8px;
   object-fit: cover;
-  opacity: 0; /* start invisible */
+  opacity: 0;
   transform: scale(0.95);
-  animation: fadeZoomIn 1.2s ease forwards; /* animation on load */
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeZoomIn 1s ease forwards; /* Faster animation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Faster transition */
 }
 
-/* 💫 Hover effect */
 .team-img1:hover,
 .team-img2:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03); /* Reduced hover scale */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Reduced shadow */
 }
 
-/* ✨ Fade + zoom-in keyframes */
 @keyframes fadeZoomIn {
   0% {
     opacity: 0;
@@ -1143,61 +1030,53 @@ footer p {
   }
 }
 
-/* 💻 For tablets and smaller laptops */
+/* Responsive image heights */
 @media (max-width: 1440px) {
   .team-img1,
   .team-img2 {
-    height: 680px;
-    width: 100%;
+    height: 680px; /* Reduced from 580px */
   }
 }
+
 @media (max-width: 1024px) {
   .team-img1,
   .team-img2 {
-    height: 670px;
+    height: 550px; /* Reduced from 670px */
   }
 }
+
 @media (max-width: 992px) {
   .team-img1,
   .team-img2 {
-    height: 300px;
+    height: 250px; /* Reduced from 300px */
   }
 }
 
-
-/* 📱 For mobile devices */
 @media (max-width: 768px) {
   .team-img1,
   .team-img2 {
-    height: 450px;
+    height: 380px; /* Reduced from 450px */
   }
 }
 
-
-/* 📱 For very small screens */
-/* For screens between 426px and 480px */
 @media (min-width: 426px) and (max-width: 480px) {
   .team-img1,
   .team-img2 {
-    height: 600px;
-    
+    height: 500px; /* Reduced from 600px */
   }
 }
 
-/* For screens 425px and below */
 @media (max-width: 425px) {
   .team-img1,
   .team-img2 {
-    height: 400px;
-    
+    height: 330px; /* Reduced from 400px */
   }
 }
-
 
 @media (max-width: 320px) {
   .team-img1,
   .team-img2 {
-    height: 300px;
+    height: 250px; /* Reduced from 300px */
   }
 }
 .contect-btn {
@@ -1324,6 +1203,7 @@ footer p {
   background-color: #008888;
   color: white;
   border: none;
+  width: 150px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;}
